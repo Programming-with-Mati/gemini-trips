@@ -1,0 +1,79 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "City Itinerary",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Creative title for the itinerary"
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of the itinerary"
+    },
+    "days": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "day": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "Day number"
+          },
+          "activities": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "description": "Activity for the day",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Name of the activity"
+                },
+                "description": {
+                  "type": "string",
+                  "description": "200 character description of the activity"
+                },
+                "estimatedDuration": {
+                  "type": "string",
+                  "description": "How much time the activity takes, in minutes."
+                }
+
+              }
+            }
+          }
+        },
+        "required": ["day", "activities"]
+      }
+    },
+    "hotels": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the hotel"
+          },
+          "starRating": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 5,
+            "description": "Star rating of the hotel"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the hotel"
+          },
+          "price": {
+            "type": "number",
+            "description": "price of the hotel"
+          }
+        },
+        "required": ["name", "starRating"]
+      }
+    }
+  },
+  "required": ["title", "description", "days", "hotels"]
+}
